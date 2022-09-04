@@ -1,4 +1,5 @@
-﻿using IpService.Models;
+﻿using IpService.Filters;
+using IpService.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,7 +18,7 @@ namespace IpService.Controllers
         {
             _logger = logger;
         }
-
+        [ServiceFilter(typeof(IpCheck))]
         public IActionResult Index()
         {
             return View();

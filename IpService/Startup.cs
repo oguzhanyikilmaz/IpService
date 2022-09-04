@@ -1,3 +1,4 @@
+using IpService.Filters;
 using IpService.ServiceIp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +25,7 @@ namespace IpService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IpCheck>();
             services.Configure<IpList>(Configuration.GetSection("IpList"));
             services.AddControllersWithViews();
         }
